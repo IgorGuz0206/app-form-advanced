@@ -1,4 +1,33 @@
-<form #userForm="ngForm" (ngSubmit)="onSubmit()">
+<form (ngSubmit)="onSubmit()" [formGroup]="userForm">
+
+  <div class="mb-3">
+    <label class="form-label" for="name">Имя:</label>
+    <input class="form-control" id="name"  type="text" formControlName="name">
+  </div>
+
+  <div class="mb-3">
+    <label class="form-label" for="password">Пароль:</label>
+    <input class="form-control" id="password"  type="text" formControlName="age">
+  </div>
+
+  <div class="mb-3">
+    <button [disabled]="" class="btn btn-info">Сохранить</button>
+   </div>
+
+  </form>
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <form #userForm="ngForm" (ngSubmit)="onSubmit()">
 
   <div class="mb-3">
     <label class="form-label" for="name">Имя:</label>
@@ -27,4 +56,4 @@
   </div>
 
 </form>
-
+ -->
