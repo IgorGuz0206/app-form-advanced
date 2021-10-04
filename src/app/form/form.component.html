@@ -3,11 +3,25 @@
   <div class="mb-3">
     <label class="form-label" for="name">Имя:</label>
     <input class="form-control" id="name"  type="text" formControlName="name">
+
+    <div *ngIf="userForm.get('name')?.hasError('required')
+            && (userForm.get('name')?.touched || userForm.get('name')?.dirty)" class="alert alert-danger">
+      Обязательное поле
+    </div>
   </div>
 
   <div class="mb-3">
     <label class="form-label" for="password">Пароль:</label>
-    <input class="form-control" id="password"  type="text" formControlName="age">
+    <input class="form-control" id="password"  type="text" formControlName="password">
+    <div *ngIf="userForm.get('password')?.hasError('required')
+            && (userForm.get('password')?.touched || userForm.get('password')?.dirty)" class="alert alert-danger">
+      Обязательное поле
+    </div>
+
+    <div *ngIf="userForm.get('password')?.hasError('minlength')
+            && (userForm.get('password')?.touched || userForm.get('password')?.dirty)" class="alert alert-danger">
+      Требуеться минимум 7 символов
+    </div>
   </div>
 
   <div class="mb-3">

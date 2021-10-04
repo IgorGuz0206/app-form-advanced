@@ -11,7 +11,7 @@ export class FormComponent implements OnInit {
 
   userForm = new FormGroup({
     name: new FormControl('', Validators.required),
-    age: new FormControl('', [Validators.required, Validators.minLength(7)])
+    password: new FormControl('', [Validators.required, Validators.minLength(7)])
   })
 
   constructor() {
