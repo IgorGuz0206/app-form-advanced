@@ -3,6 +3,7 @@ export const FORM_LABELS = {
   password: 'Пароль',
   email: 'Email',
   age: 'Установите возраст...',
+  site: 'Сайт',
   role: 'Роль',
 };
 
@@ -11,6 +12,7 @@ export const FORM_PLACEHOLDERS = {
   password: 'Введите пароль...',
   email: 'Укажите адрес электронной почты...',
   age: 'Установите возраст...',
+  site: 'Введитe адрес сайта',
   role: 'Выберите роль из списка...',
 };
 
@@ -19,6 +21,7 @@ export const FORM_SUCCESS = {
   password: 'Принято!',
   email: 'Принято!',
   age: 'Принято!',
+  site: 'Принято!',
   role: 'Принято!',
 };
 
@@ -27,6 +30,7 @@ export const FORM_ERRORS = {
   password: '',
   email: '',
   age: '',
+  site: '',
   role: '',
 };
 
@@ -48,6 +52,11 @@ export const FORM_VALIDATION_MESSAGES = {
   age: {
     required: 'Возраст обязателен',
     rangeValidator: 'Значение должно быть числом в диапазоне 1...122',
+  },
+  site: {
+    required: 'Сайт обязателен',
+    urlNotAllowed: 'Неправильный формат адреса сайта',
+    pending: 'Выполняеться проверка',
   },
   role: {
     required: 'Обязательное поле',

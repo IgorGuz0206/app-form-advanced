@@ -8,7 +8,7 @@ import {
   FormBuilder,
   AbstractControl
 } from '@angular/forms';
-import { emailValidator, rangeValidator } from '../custom-validators';
+import { emailValidator, rangeValidator, asyncUrlValidator, obsrvableUrlValidator } from '../custom-validators';
 import { FORM_LABELS, FORM_PLACEHOLDERS, FORM_SUCCESS, FORM_ERRORS, FORM_VALIDATION_MESSAGES, FORM_ROLES} from '../form-data';
 
 @Component({
@@ -25,12 +25,13 @@ export class FormComponent implements OnInit {
   roles: string[] = FORM_ROLES
   userForm!: FormGroup;
 
-  private user: User = new User(1, null, null, null, null, null);
+  private user: User = new User(1, null, null, null, null, null, null);
   
   name!: AbstractControl
   password!: AbstractControl
   email!: AbstractControl
   age!: AbstractControl
+  site!: AbstractControl
   role!: AbstractControl
 
   constructor(private formBuilder: FormBuilder) {}
@@ -47,6 +48,7 @@ export class FormComponent implements OnInit {
       password: [this.user.password, [Validators.required, Validators.minLength(7), Validators.maxLength(25)]],
       email: [this.user.email, [Validators.required, emailValidator]],
       age: [this.user.age, [Validators.required, rangeValidator(1, 122)]],
+      site: [this.user.site, [Validators.required], obsrvableUrlValidator],
       role: [this.user.role, [Validators.required]],
     });
     this.userForm.valueChanges.subscribe(() => this.onValueChanged());
@@ -74,6 +76,7 @@ export class FormComponent implements OnInit {
     this.password = this.userForm.controls.password
     this.email = this.userForm.controls.email
     this.age = this.userForm.controls.age
+    this.site = this.userForm.controls.site
     this.role = this.userForm.controls.role
   }
 }
